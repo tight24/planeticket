@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>航空券予約フォーム</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <link rel="stylesheet" href="plane.css">
+</head>
+<body>
+  <div id="app">
+    <h1>航空券のご予約</h1>
+    <p>〇〇AirLineをご利用いただきありがとうございます</p>
+    <h2>1.フライト情報の入力</h2>
+    <h3>出発地と目的地の選択</h3>
+
+    <div>
+      出発地：
+      <select v-model="departureRegion">
+        <option v-for="region in regions">{{region.text}}</option>
+      </select>
+
+      <div v-for="airport in airports">
+        <label><input type="radio" v-model="checkedAirport" v-bind:value="region.airports">{{ region.airports }}</label>
+
+      </div>
+
+    </div>
+
+    <div>
+      目的地：
+      <select v-model="destinationRegion">
+        <option v-for="region in regions">{{region.text}}</option>
+      </select>
+    </div>
+  </div>
+
+
+  <script src="plane.js"></script>
+
+</body>
+</html>
